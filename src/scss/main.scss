@@ -1,7 +1,6 @@
 html {
     margin: 0%;
     padding: 0%;
-    background-color: green;
 }
 
 /* Header */
@@ -12,7 +11,7 @@ header {
 }
 
 .myH1 {
-    color: rgb(255, 180, 89);
+    color: rgb(255, 154, 65);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,7 +25,8 @@ ul {
         list-style: circle;
     }
     li:hover {
-        background-color: white;
+        background-color:  rgb(255, 119, 0);
+        color: white;
     }
 }
 
@@ -38,6 +38,6 @@ ul {
 
 /*Done*/
 #doneContainer {
-    background-color: rgb(239, 239, 239);
+    background-color: rgb(197, 255, 223);
     color: white;
 }

@@ -7,10 +7,10 @@ myH1.className = "myH1"; //ger min h1 class .myH1
 myHeader.appendChild(myH1); //lägger i / visar upp min h1 i min html (i header-tagen).
 
 /*--------------------- MAIN ---------------------*/
-/*------- To Do: -------*/
+/*------- To Do - section -------*/
 
 let myToDoList = document.getElementById("toDoContainer"); //hämtar min To Do section / container.
-const myToDoH2 = document.createElement("h2"); //skapar en h2
+const myToDoH2 = document.createElement("h2"); //skapar en h2.
 myToDoH2.innerHTML = "To Do:"; //ger min ToDo H2 innehåll.
 myToDoList.appendChild(myToDoH2); //lägger i / visar upp min To Do h2 i min html (i min section med id toDoContainer).
 
@@ -43,5 +43,9 @@ myToDoLi6.innerHTML =
   "Celebrate with a glass of wine, that I finished my assignment"; //ger min 6:e li innehåll.
 myToDoUl.appendChild(myToDoLi6); //lägger till ovan li i min html (i min ul myToDoUl).
 
-/*------- Done: -------*/
+/*------- Done - section  -------*/
+
 let myDoneList = document.getElementById("doneContainer"); //hämtar min Done section / container.
+const myDoneH2 = document.createElement("h2"); //skapar en h2.
+myDoneH2.innerHTML = "Done:"; //ger min Done h2 innehåll.
+myDoneList.appendChild(myDoneH2); //lägger i / visar upp min Done h2 i min html (i min section med id doneContainer).
