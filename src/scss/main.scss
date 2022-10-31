@@ -1,15 +1,22 @@
 html {
     margin: 0%;
     padding: 0%;
+    background-color: green;
 }
 
 /* Header */
-#myHeader {
+
+header {
     background-color: mediumseagreen;
+    height: 30vh;
+}
+
+.myH1 {
     color: rgb(255, 180, 89);
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100%;
 }
 
 /*list items styling*/
@@ -24,13 +31,13 @@ ul {
 }
 
 /*To Do*/
-#notDone {
+#toDoContainer {
     background-color: lightyellow;
     color: rgb(255, 119, 0);
 }
 
 /*Done*/
-#checkedAsDone {
+#doneContainer {
     background-color: rgb(239, 239, 239);
     color: white;
 }
