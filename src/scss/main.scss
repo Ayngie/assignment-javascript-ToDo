@@ -1,0 +1,36 @@
+html {
+    margin: 0%;
+    padding: 0%;
+}
+
+/* Header */
+#myHeader {
+    background-color: mediumseagreen;
+    color: rgb(255, 180, 89);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*list items styling*/
+ul {
+    li {
+        cursor: pointer;
+        list-style: circle;
+    }
+    li:hover {
+        background-color: white;
+    }
+}
+
+/*To Do*/
+#notDone {
+    background-color: lightyellow;
+    color: rgb(255, 119, 0);
+}
+
+/*Done*/
+#checkedAsDone {
+    background-color: rgb(239, 239, 239);
+    color: white;
+}
