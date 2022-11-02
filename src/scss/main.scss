@@ -34,10 +34,20 @@ ul {
 #toDoContainer {
     background-color: lightyellow;
     color: rgb(255, 119, 0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /*Done*/
 #doneContainer {
     background-color: rgb(197, 255, 223);
     color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.doneH2 {
+    font-size: 1.3em;
 }
