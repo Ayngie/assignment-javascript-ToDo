@@ -21,13 +21,17 @@ header {
 /*list items styling*/
 ul {
     li {
-        cursor: pointer;
-        list-style: circle;
+        list-style: none;
     }
     li:hover {
         background-color:  rgb(255, 119, 0);
         color: white;
     }
+}
+.clickable {
+    cursor: pointer;
+    background-color: rgb(255, 220, 192);
+    border: 1px solid  white;
 }
 
 /*To Do*/

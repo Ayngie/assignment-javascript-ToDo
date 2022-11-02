@@ -1,4 +1,4 @@
-/*--------------------- HEADER ---------------------*/
+/*------------------------------------------- HEADER ---------------------------------------------------------*/
 
 let myHeader = document.getElementById("myHeader"); //hämtar min header-tag.
 const myH1 = document.createElement("h1"); //skapar en h1
@@ -9,71 +9,60 @@ myHeader.appendChild(myH1); //lägger i / visar upp min h1 i min html (i header-
 let className = myH1.className; //tilldela variabel för att kunna kolla mina klassnamn på min H1
 console.log(className); //visa upp H1 klassnamn i console.
 
-// /*--------------------- MAIN ---------------------*/
+/*------------------------------------------- MAIN ---------------------------------------------------------*/
 
 /*------- h2 - To Do -------*/
-let myToDoList = document.getElementById("toDoContainer"); //hämtar min To Do section / container.
+let toDoContainer = document.getElementById("toDoContainer"); //hämtar min To Do section / container.
 const myToDoH2 = document.createElement("h2"); //skapar en h2.
-myToDoH2.innerHTML = "To Do:"; //ger min ToDo H2 innehåll.
-myToDoList.appendChild(myToDoH2); //lägger i / visar upp min To Do h2 i min html (i min section med id toDoContainer).
+myToDoH2.innerHTML = "To Do:"; //ger min h2 innehållet "To Do:".
+toDoContainer.appendChild(myToDoH2); //lägger i / visar upp min h2 i dess container (i min html - min section med id toDoContainer).
 
-/*------- container / ul -------*/
-let container = document.getElementById("toDoContainer");
-
+/*------- ul -------*/
 let myToDoUl = document.createElement("ul"); //skapar en ul
 myToDoUl.className = "list-group"; //Ger bootstrapklassen list-group till min ul.
-// myToDoList.appendChild(myToDoUl); //lägger i till min To Do ul i min html (i min section med id toDoContainer).
-container.appendChild(myToDoUl); //lägger i till min To Do ul i dess container.
+toDoContainer.appendChild(myToDoUl); //lägger i / visar upp min To Do ul i dess container (i min html - min section med id toDoContainer).
 
-/*------- li's -------*/
+/*------- Tasks - class, listor, listitems -------*/
 
 class HalloweenToDo {
-  //Skapar en klass som jag skapa mina tasks med.
+  //Skapar en klass som jag sedan kan skapa mina tasks med.
   constructor(task) {
     this.task = task;
   }
 }
 
-let myTasks = []; //Här vill jag ha en lista med mina tasks
-//Här under pushar jag in mina tasks in i listan...
-myTasks.push(new HalloweenToDo("Buy pumpkin"));
+let myTasks = []; //Här deklarerar jag en (tom) lista med mina tasks
+myTasks.push(new HalloweenToDo("Buy pumpkin")); //Nu pushar jag in mina tasks in i listan...
 myTasks.push(new HalloweenToDo("Carve scary pumpkin face"));
 myTasks.push(new HalloweenToDo("Light candle in pumpkin and set outside"));
 myTasks.push(new HalloweenToDo("Bake pumpkin pie"));
 myTasks.push(new HalloweenToDo("Bake pumpkin seeds"));
 myTasks.push(new HalloweenToDo("Celebrate with a glass of wine"));
 
-// let myTasks = [ //lista med tasks
-// "Buy pumpkin",
-// "Carve scary pumpkin face",
-// "Light candle in pumpkin and set outside",
-// "Bake pumpkin pie",
-// "Bake pumpkin seeds",
-// "Celebrate with a glass of wine",
-// ];
+//let clickedTasks = []; //deklarerar en (tom) lista för clicked tasks.
+
+/*------- for-loop för att skapa li -------*/
 
 for (let i = 0; i < myTasks.length; i++) {
+  //loopa igenom mina tasks i denna loop för att:
   console.log(myTasks[i]);
 
-  // new HalloweenToDo(myTasks[i]);
+  let loopedTask = document.createElement("li"); //skapa li. (Låt loopedTask vara en li som vi skapar).
+  loopedTask.innerHTML = myTasks[i].task; //skriver ut värdet av min task i min li. (Låt min li innehålla (en string som är) värdet av objektet task i listan myTasks).
+  loopedTask.classList.add("clickable"); //lägg till klassen .clickable på min li, för möljighet till styling i CSS/SCSS.
+  loopedTask.addEventListener("click", () => {
+    //anonym funktion = gör så att vi kan anropa vår funktion och skicka med värden!
+    //lyssna på min li efter klick-händelse.
+    handleClick(myTasks[i]); //anropa funktion för att hantera vad som ska ske vid klick på min li, och skicka med ett värde: värdet är vilken task som klickats på.
+  });
+  myToDoUl.appendChild(loopedTask); //lägger till li i min ul (myToDoUL).
+}
 
-  let loopedTask = document.createElement("li");
-  loopedTask.innerHTML = [i];
-  myToDoUl.appendChild(loopedTask); //lägger till li i min ul myToDoUl (som är tillagd så den ska synas i min html)).
+/*------- funktion för klick-händelsen -------*/
 
-  // let title = document.createElement("h1");
-  // let img = document.createElement("img");
-
-  // title.innerHTML = data.Search[i].Title;
-  // img.src = data.Search[i].Poster;
-  // img.alt = data.Search[i].Title;
-
-  // container.classList.add("movie");
-
-  // container.appendChild(title);
-  // container.appendChild(img);
-
-  // document.body.appendChild(container);
+function handleClick(loopedTask) {
+  //funktion för vad som ska ske när användaren klickar på en loopedTask.
+  console.log("You clicked on: ", loopedTask); //skriv ut i console vilken task användaren klickade på.
 }
 
 /*------- Done - section  -------*/
@@ -85,33 +74,3 @@ myDoneH2.innerHTML = "Done:"; //ger min Done h2 innehåll.
 myDoneList.appendChild(myDoneH2); //lägger i / visar upp min Done h2 i min html (i min section med id doneContainer).
 
 /*----------------------------------------------------------------------------------------------------*/
-//FÖRSTA FÖRSÖKET - FEL...
-
-// /*--------------------- MAIN ---------------------*/
-
-// /* ul / li */
-
-// let myToDoLi1 = document.createElement("li"); //skapar en 1:a li
-// myToDoLi1.innerHTML = "Buy pumpkin"; //ger min 1:a li innehåll.
-// myToDoUl.appendChild(myToDoLi1); //lägger till ovan li i min html (i min ul myToDoUl).
-
-// let myToDoLi2 = document.createElement("li"); //skapar en 2:a li
-// myToDoLi2.innerHTML = "Carve scary pumpkin face"; //ger min 2:a li innehåll.
-// myToDoUl.appendChild(myToDoLi2); //lägger till ovan li i min html (i min ul myToDoUl).
-
-// let myToDoLi3 = document.createElement("li"); //skapar en 3:e li
-// myToDoLi3.innerHTML = "Light candle in pumpkin and set outside"; //ger min 3:e li innehåll.
-// myToDoUl.appendChild(myToDoLi3); //lägger till ovan li i min html (i min ul myToDoUl).
-
-// let myToDoLi4 = document.createElement("li"); //skapar en 4:e li
-// myToDoLi4.innerHTML = "Bake pumpkin pie"; //ger min 4:e li innehåll.
-// myToDoUl.appendChild(myToDoLi4); //lägger till ovan li i min html (i min ul myToDoUl).
-
-// let myToDoLi5 = document.createElement("li"); //skapar en 5:e li
-// myToDoLi5.innerHTML = "Bake pumpkin seeds"; //ger min 5:e li innehåll.
-// myToDoUl.appendChild(myToDoLi5); //lägger till ovan li i min html (i min ul myToDoUl).
-
-// let myToDoLi6 = document.createElement("li"); //skapar en 6:e li
-// myToDoLi6.innerHTML =
-//   "Celebrate with a glass of wine"; //ger min 6:e li innehåll.
-// myToDoUl.appendChild(myToDoLi6); //lägger till ovan li i min html (i min ul myToDoUl).
