@@ -3,7 +3,7 @@
 let myHeader = document.getElementById("myHeader"); //hämtar min header-tag.
 const myH1 = document.createElement("h1"); //skapar en h1
 myH1.innerHTML = "Halloween To-Do"; //ger min h1 innehåll.
-myH1.className = "myH1 shadow-lg"; //ger min h1 class .myH1 samt .shadow.lg
+myH1.className = "myH1"; //ger min h1 class .myH1 samt ville ge .shadow-lg men den ville inte.
 myHeader.appendChild(myH1); //lägger i / visar upp min h1 i min html (i header-tagen).
 
 let className = myH1.className; //tilldela variabel för att kunna kolla mina klassnamn på min H1
@@ -28,6 +28,7 @@ class HalloweenToDo {
   //Skapar en klass som jag sedan kan skapa mina tasks med.
   constructor(task) {
     this.task = task;
+    this.completed = false;
   }
 }
 
@@ -43,26 +44,41 @@ myTasks.push(new HalloweenToDo("Celebrate with a glass of wine"));
 
 /*------- for-loop för att skapa li -------*/
 
-for (let i = 0; i < myTasks.length; i++) {
-  //loopa igenom mina tasks i denna loop för att:
-  console.log(myTasks[i]);
+function createLi() {
+  //funktion för min for loop så att jag kan köra loopen igen senare när objekt blivit iklickade.
+  myToDoUl.innerHTML = "";
 
-  let loopedTask = document.createElement("li"); //skapa li. (Låt loopedTask vara en li som vi skapar).
-  loopedTask.innerHTML = myTasks[i].task; //skriver ut värdet av min task i min li. (Låt min li innehålla (en string som är) värdet av objektet task i listan myTasks).
-  loopedTask.classList.add("clickable"); //lägg till klassen .clickable på min li, för möljighet till styling i CSS/SCSS.
-  loopedTask.addEventListener("click", () => {
-    //anonym funktion = gör så att vi kan anropa vår funktion och skicka med värden!
-    //lyssna på min li efter klick-händelse.
-    handleClick(myTasks[i]); //anropa funktion för att hantera vad som ska ske vid klick på min li, och skicka med ett värde: värdet är vilken task som klickats på.
-  });
-  myToDoUl.appendChild(loopedTask); //lägger till li i min ul (myToDoUL).
+  for (let i = 0; i < myTasks.length; i++) {
+    //loopa igenom mina tasks i denna loop för att:
+    console.log(myTasks[i]);
+
+    let loopedTask = document.createElement("li"); //skapa li. (Låt loopedTask vara en li som vi skapar).
+    loopedTask.innerHTML = myTasks[i].task; //skriver ut värdet av min task i min li. (Låt min li innehålla (en string som är) värdet av objektet task i listan myTasks).
+    loopedTask.classList.add("clickable"); //lägg till klassen .clickable på min li, för möljighet till styling i CSS/SCSS.
+
+    if (myTasks[i].completed) {
+      loopedTask.classList.add("styla"); //lägg till klassen .styla på min li, för möljighet till styling i CSS/SCSS.
+    }
+
+    loopedTask.addEventListener("click", () => {
+      //anonym funktion = gör så att vi kan anropa vår funktion och skicka med värden!
+      //lyssna på min li efter klick-händelse.
+      handleClick(myTasks[i]); //anropa funktion (för att hantera vad som ska ske vid klick på min li) med paranteser (för att kunna skicka med ett värde: värdet är vilken task som klickats på).
+    });
+    myToDoUl.appendChild(loopedTask); //lägger till li i min ul (myToDoUL).
+  }
 }
+
+createLi(); //nu körs denna funktion o mina li skapas (då min loop körs).
 
 /*------- funktion för klick-händelsen -------*/
 
 function handleClick(loopedTask) {
   //funktion för vad som ska ske när användaren klickar på en loopedTask.
+  loopedTask.completed = true; //när min task är klickad på ändras den till completed = true (defaultvärde var completed = false).
+
   console.log("You clicked on: ", loopedTask); //skriv ut i console vilken task användaren klickade på.
+  createLi();
 }
 
 /*------- Done - section  -------*/

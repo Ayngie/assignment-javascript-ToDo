@@ -44,14 +44,20 @@ ul {
 }
 
 /*Done*/
-#doneContainer {
-    background-color: rgb(197, 255, 223);
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+
+.styla {
+    color: grey;
+    text-decoration: line-through;
 }
 
-.doneH2 {
-    font-size: 1.3em;
-}
+// #doneContainer {
+//     background-color: rgb(197, 255, 223);
+//     color: white;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+// }
+
+// .doneH2 {
+//     font-size: 1.3em;
+// }
