@@ -40,13 +40,11 @@ myTasks.push(new HalloweenToDo("Bake pumpkin pie"));
 myTasks.push(new HalloweenToDo("Bake pumpkin seeds"));
 myTasks.push(new HalloweenToDo("Celebrate with a glass of wine"));
 
-//let clickedTasks = []; //deklarerar en (tom) lista för clicked tasks.
-
 /*------- for-loop för att skapa li -------*/
 
 function createLi() {
   //funktion för min for loop så att jag kan köra loopen igen senare när objekt blivit iklickade.
-  myToDoUl.innerHTML = "";
+  myToDoUl.innerHTML = ""; //rensa listan
 
   for (let i = 0; i < myTasks.length; i++) {
     //loopa igenom mina tasks i denna loop för att:
@@ -57,14 +55,19 @@ function createLi() {
     loopedTask.classList.add("clickable"); //lägg till klassen .clickable på min li, för möljighet till styling i CSS/SCSS.
 
     if (myTasks[i].completed) {
-      loopedTask.classList.add("styla"); //lägg till klassen .styla på min li, för möljighet till styling i CSS/SCSS.
+      loopedTask.classList.add("done"); //lägg till klassen .styla på min li, för möljighet till styling i CSS/SCSS.
     }
 
     loopedTask.addEventListener("click", () => {
       //anonym funktion = gör så att vi kan anropa vår funktion och skicka med värden!
       //lyssna på min li efter klick-händelse.
-      handleClick(myTasks[i]); //anropa funktion (för att hantera vad som ska ske vid klick på min li) med paranteser (för att kunna skicka med ett värde: värdet är vilken task som klickats på).
+      //handleClick(myTasks[i]); //anropa funktion (för att hantera vad som ska ske vid klick på min li) med paranteser (för att kunna skicka med ett värde: värdet är vilken task som klickats på).
+      myTasks[i].completed = true; //när min task är klickad på ändras den till completed = true (defaultvärde var completed = false).
+
+      console.log("You clicked on: ", myTasks[i]); //skriv ut i console vilken task användaren klickade på.
+      createLi();
     });
+
     myToDoUl.appendChild(loopedTask); //lägger till li i min ul (myToDoUL).
   }
 }
@@ -73,13 +76,13 @@ createLi(); //nu körs denna funktion o mina li skapas (då min loop körs).
 
 /*------- funktion för klick-händelsen -------*/
 
-function handleClick(loopedTask) {
-  //funktion för vad som ska ske när användaren klickar på en loopedTask.
-  loopedTask.completed = true; //när min task är klickad på ändras den till completed = true (defaultvärde var completed = false).
+// function handleClick(clickedTask) {
+//   //funktion för vad som ska ske när användaren klickar på en loopedTask.
+//   clickedTask.completed = true; //när min task är klickad på ändras den till completed = true (defaultvärde var completed = false).
 
-  console.log("You clicked on: ", loopedTask); //skriv ut i console vilken task användaren klickade på.
-  createLi();
-}
+//   console.log("You clicked on: ", clickedTask); //skriv ut i console vilken task användaren klickade på.
+//   createLi();
+// }
 
 /*------- Done - section  -------*/
 
