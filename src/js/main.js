@@ -61,7 +61,7 @@ function createLi() {
     loopedTask.addEventListener("click", () => {
       //anonym funktion = gör så att vi kan anropa vår funktion och skicka med värden!
       //lyssna på min li efter klick-händelse.
-      //handleClick(myTasks[i]); //anropa funktion (för att hantera vad som ska ske vid klick på min li) med paranteser (för att kunna skicka med ett värde: värdet är vilken task som klickats på).
+      //handleClick(myTasks[i]); //anropa funktion (för att hantera vad som ska ske vid klick på min li) med paranteser (för att kunna skicka med ett värde: värdet är vilken task som klickats på). //Denna rad är borttagen iom vi istället bakat in funktionen på följande rader. Låter detta stå kvar för att kunna se skillnaden.
       myTasks[i].completed = true; //när min task är klickad på ändras den till completed = true (defaultvärde var completed = false).
 
       console.log("You clicked on: ", myTasks[i]); //skriv ut i console värdet av den task (alltså vilken task) användaren klickade på.
@@ -74,7 +74,7 @@ function createLi() {
 
 createLi(); //nu körs denna funktion o mina li skapas (då min loop körs).
 
-/*------- funktion för klick-händelsen -------*/
+/*------- funktion för klick-händelsen -------*/ //Tog bort denna då vi istället bakat in denna funktion ovan (vilket blir renare kod)! Låter detta stå kvar för att kunna se skillnaden.
 
 // function handleClick(clickedTask) {
 //   //funktion för vad som ska ske när användaren klickar på en loopedTask.
