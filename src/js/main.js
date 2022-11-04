@@ -44,18 +44,18 @@ myTasks.push(new HalloweenToDo("Celebrate with a glass of wine"));
 
 function createLi() {
   //funktion för min for loop så att jag kan köra loopen igen senare när objekt blivit iklickade.
-  myToDoUl.innerHTML = ""; //rensa listan
+  myToDoUl.innerHTML = ""; //rensa så listan ej dubbleras
 
   for (let i = 0; i < myTasks.length; i++) {
     //loopa igenom mina tasks i denna loop för att:
-    console.log(myTasks[i]);
+    console.log(myTasks[i]); //visa upp dem i console
 
     let loopedTask = document.createElement("li"); //skapa li. (Låt loopedTask vara en li som vi skapar).
     loopedTask.innerHTML = myTasks[i].task; //skriver ut värdet av min task i min li. (Låt min li innehålla (en string som är) värdet av objektet task i listan myTasks).
     loopedTask.classList.add("clickable"); //lägg till klassen .clickable på min li, för möljighet till styling i CSS/SCSS.
 
     if (myTasks[i].completed) {
-      loopedTask.classList.add("done"); //lägg till klassen .styla på min li, för möljighet till styling i CSS/SCSS.
+      loopedTask.classList.add("done"); //lägg till klassen .done på min li, för möljighet till styling i CSS/SCSS.
     }
 
     loopedTask.addEventListener("click", () => {
@@ -64,8 +64,8 @@ function createLi() {
       //handleClick(myTasks[i]); //anropa funktion (för att hantera vad som ska ske vid klick på min li) med paranteser (för att kunna skicka med ett värde: värdet är vilken task som klickats på).
       myTasks[i].completed = true; //när min task är klickad på ändras den till completed = true (defaultvärde var completed = false).
 
-      console.log("You clicked on: ", myTasks[i]); //skriv ut i console vilken task användaren klickade på.
-      createLi();
+      console.log("You clicked on: ", myTasks[i]); //skriv ut i console värdet av den task (alltså vilken task) användaren klickade på.
+      createLi(); //anropar funktionen så den körs igen, nu med dessa nya ändringar
     });
 
     myToDoUl.appendChild(loopedTask); //lägger till li i min ul (myToDoUL).
@@ -86,10 +86,10 @@ createLi(); //nu körs denna funktion o mina li skapas (då min loop körs).
 
 /*------- Done - section  -------*/
 
-let myDoneList = document.getElementById("doneContainer"); //hämtar min Done section / container.
-const myDoneH2 = document.createElement("h2"); //skapar en h2.
-myDoneH2.className = "doneH2";
-myDoneH2.innerHTML = "Done:"; //ger min Done h2 innehåll.
-myDoneList.appendChild(myDoneH2); //lägger i / visar upp min Done h2 i min html (i min section med id doneContainer).
+// let myDoneList = document.getElementById("doneContainer"); //hämtar min Done section / container.
+// const myDoneH2 = document.createElement("h2"); //skapar en h2.
+// myDoneH2.className = "doneH2";
+// myDoneH2.innerHTML = "Done:"; //ger min Done h2 innehåll.
+// myDoneList.appendChild(myDoneH2); //lägger i / visar upp min Done h2 i min html (i min section med id doneContainer).
 
 /*----------------------------------------------------------------------------------------------------*/

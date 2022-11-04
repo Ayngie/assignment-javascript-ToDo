@@ -28,7 +28,7 @@ ul {
         color: white;
     }
 }
-.clickable {
+.clickable { 
     cursor: pointer;
     background-color: rgb(255, 220, 192);
     border: 1px solid  white;
@@ -45,7 +45,7 @@ ul {
 
 /*Done*/
 
-.done {
+.done { //stylea checked tasks
     color: grey;
     text-decoration: line-through;
 }
