@@ -3,4 +3,4 @@
 ## Short description 
 A very simple Todo-list built in the very beginning of our JS course. 
 
-## More to come
+## More info to come...
